@@ -3,8 +3,9 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 
 describe('When the app renders', () => {
-  test('it shows the title', () => {
+  test('it shows links', () => {
     render(<App />);
-    screen.getByText('Frontend fork by Cammy!');
+    screen.getByText('Home');
+    screen.getByText('About');
   });
 });

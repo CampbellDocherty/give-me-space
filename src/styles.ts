@@ -14,20 +14,35 @@ export const Logo = styled.img`
   height: 14rem;
   cursor: pointer;
   animation: ${fadeIn} 1s ease-out;
+  display: inline-block;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{
+  $isSmallerScreen?: boolean;
+}>`
   width: 100%;
   display: flex;
-  padding: 2rem;
+  padding: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '0' : '2rem')};
   gap: 8rem;
 `;
 
-export const Links = styled.div`
+const smallerScreenLinks = `
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    position: absolute;
+    top: 4.5rem;
+    right: 1rem;
+    `;
+
+export const Links = styled.div<{
+  $isSmallerScreen?: boolean;
+}>`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding-top: 4rem;
+  padding-top: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '0' : '4rem')};
+  ${({ $isSmallerScreen }) => $isSmallerScreen && smallerScreenLinks}
 `;
 
 const fadeInLeft = keyframes`
@@ -105,8 +120,11 @@ export const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 60vh;
+  max-width: 100vw;
+
   img {
     height: 100%;
+    width: 100%;
 
     &:nth-child(1) {
       animation: ${fadeInBottom} 1s ease-out;

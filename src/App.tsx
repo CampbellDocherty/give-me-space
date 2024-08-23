@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <>
-      <Logo src={logo} alt="logo" />
+      <Logo src={logo} alt="logo" onClick={() => setRoute(Routes.HOME)} />
       <Container>
         <Links>
           <Link

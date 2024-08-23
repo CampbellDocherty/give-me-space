@@ -16,10 +16,12 @@ export const Logo = styled.img`
   animation: ${fadeIn} 1s ease-out;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{
+  $isSmallerScreen?: boolean;
+}>`
   width: 100%;
   display: flex;
-  padding: 2rem;
+  padding: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '0' : '2rem')};
   gap: 8rem;
 `;
 
@@ -105,8 +107,11 @@ export const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 60vh;
+  max-width: 100vw;
+
   img {
     height: 100%;
+    width: 100%;
 
     &:nth-child(1) {
       animation: ${fadeInBottom} 1s ease-out;

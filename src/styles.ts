@@ -14,6 +14,7 @@ export const Logo = styled.img`
   height: 14rem;
   cursor: pointer;
   animation: ${fadeIn} 1s ease-out;
+  display: inline-block;
 `;
 
 export const Container = styled.div<{
@@ -25,11 +26,23 @@ export const Container = styled.div<{
   gap: 8rem;
 `;
 
-export const Links = styled.div`
+const smallerScreenLinks = `
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    position: absolute;
+    top: 4.5rem;
+    right: 1rem;
+    `;
+
+export const Links = styled.div<{
+  $isSmallerScreen?: boolean;
+}>`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding-top: 4rem;
+  padding-top: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '0' : '4rem')};
+  ${({ $isSmallerScreen }) => $isSmallerScreen && smallerScreenLinks}
 `;
 
 const fadeInLeft = keyframes`

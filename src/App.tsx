@@ -82,11 +82,30 @@ const App = () => {
           </ImageContainer>
         </Container>
       ) : (
-        <Container $isSmallerScreen={isSmallerScreen}>
-          <ImageContainer>
-            <img src={images[imageToShow].src} alt={images[imageToShow].alt} />
-          </ImageContainer>
-        </Container>
+        <>
+          <Links $isSmallerScreen={isSmallerScreen}>
+            <Link
+              onClick={() => setRoute(Routes.HOME)}
+              $selected={route === Routes.HOME}
+            >
+              Home
+            </Link>
+            <Link
+              onClick={() => setRoute(Routes.ABOUT)}
+              $selected={route === Routes.ABOUT}
+            >
+              About
+            </Link>
+          </Links>
+          <Container $isSmallerScreen={isSmallerScreen}>
+            <ImageContainer>
+              <img
+                src={images[imageToShow].src}
+                alt={images[imageToShow].alt}
+              />
+            </ImageContainer>
+          </Container>
+        </>
       )}
     </>
   );

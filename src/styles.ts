@@ -11,10 +11,11 @@ const fadeIn = keyframes`
     `;
 
 export const Logo = styled.img`
-  height: 14rem;
+  height: 6rem;
   cursor: pointer;
   animation: ${fadeIn} 1s ease-out;
   display: inline-block;
+  margin: 1rem;
 `;
 
 export const Container = styled.div<{
@@ -31,7 +32,7 @@ const smallerScreenLinks = `
     justify-content: center;
     gap: 1rem;
     position: absolute;
-    top: 4.5rem;
+    top: 1.5rem;
     right: 1rem;
     `;
 
@@ -41,7 +42,6 @@ export const Links = styled.div<{
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding-top: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '0' : '4rem')};
   ${({ $isSmallerScreen }) => $isSmallerScreen && smallerScreenLinks}
 `;
 

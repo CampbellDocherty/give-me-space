@@ -14,7 +14,7 @@ export const Container = styled.div<{
 }>`
   width: 100%;
   display: flex;
-  padding: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '0' : '2rem')};
+  padding: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '2rem 0' : '2rem')};
   gap: 8rem;
 `;
 
@@ -87,11 +87,9 @@ export const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 60vh;
-  max-width: 100vw;
-
+  flex: 1;
   img {
     height: 100%;
-    width: 100%;
 
     &:nth-child(1) {
       animation: ${fadeInBottom} 1s ease-out;

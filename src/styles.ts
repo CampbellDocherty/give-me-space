@@ -85,24 +85,17 @@ export const Link = styled.p<{ $selected: boolean }>`
 export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 60vh;
   flex: 1;
   max-width: 100vw;
+  overflow: hidden;
 
   img {
-    height: 100%;
     max-width: 100%;
-    object-fit: cover;
+    max-height: 100%;
 
-    &:nth-child(1) {
-      animation: ${fadeInBottom} 1s ease-out;
-    }
-    &:nth-child(2) {
-      animation: ${fadeInBottom} 1.5s ease-out;
-    }
-    &:nth-child(3) {
-      animation: ${fadeInBottom} 2s ease-out;
-    }
+    object-fit: cover;
+    animation: ${fadeInBottom} 1s ease-out;
   }
 `;

@@ -1,22 +1,19 @@
 import { useEffect, useState } from 'react';
-import { homeImages } from './assets/home';
 import logo from './assets/logo.jpeg';
-import { Container, ImageContainer, Link, Links, Logo } from './styles';
+import { Container, Link, Links, Logo } from './styles';
+import { Home } from './Home';
+import { Press } from './Press';
 
 enum Routes {
   HOME = 'home',
-  ABOUT = 'about',
+  PRESS = 'press',
 }
 
 const App = () => {
   const [route, setRoute] = useState(Routes.HOME);
-  const [loadedImages, setLoadedImages] = useState<
-    ReadonlyArray<HTMLImageElement>
-  >([]);
   const [isSmallerScreen, setIsSmallerScreen] = useState(
     window.innerWidth < 768
   );
-  const [imageToShow, setImageToShow] = useState(0);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -38,29 +35,6 @@ const App = () => {
     };
   }, []);
 
-  useEffect(() => {
-    homeImages.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        setLoadedImages((prevImages) => [...prevImages, img]);
-      };
-    });
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setImageToShow((prev) => {
-        if (prev === loadedImages.length - 1) {
-          return 0;
-        }
-        return prev + 1;
-      });
-    }, 1500);
-
-    return () => clearInterval(interval);
-  }, [homeImages]);
-
   return (
     <>
       <Logo src={logo} alt="logo" onClick={() => setRoute(Routes.HOME)} />
@@ -73,18 +47,15 @@ const App = () => {
             Home
           </Link>
           <Link
-            onClick={() => setRoute(Routes.ABOUT)}
-            $selected={route === Routes.ABOUT}
+            onClick={() => setRoute(Routes.PRESS)}
+            $selected={route === Routes.PRESS}
           >
-            About
+            Press
           </Link>
         </Links>
 
-        <ImageContainer>
-          {loadedImages.length > 0 && (
-            <img src={loadedImages[imageToShow].src} alt={'hey'} />
-          )}
-        </ImageContainer>
+        {route === Routes.HOME && <Home isSmallerScreen={isSmallerScreen} />}
+        {route === Routes.PRESS && <Press isSmallerScreen={isSmallerScreen} />}
       </Container>
     </>
   );

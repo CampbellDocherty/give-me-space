@@ -1,9 +1,7 @@
-import { Container, ImageContainer, Link, Links, Logo } from './styles';
-import logo from './assets/logo.jpeg';
-import firstImage from './assets/1.jpeg';
-import secondImage from './assets/2.jpeg';
-import thirdImage from './assets/3.jpeg';
 import { useEffect, useState } from 'react';
+import { homeImages } from './assets/home';
+import logo from './assets/logo.jpeg';
+import { Container, ImageContainer, Link, Links, Logo } from './styles';
 
 enum Routes {
   HOME = 'home',
@@ -12,14 +10,12 @@ enum Routes {
 
 const App = () => {
   const [route, setRoute] = useState(Routes.HOME);
+  const [loadedImages, setLoadedImages] = useState<
+    ReadonlyArray<HTMLImageElement>
+  >([]);
   const [isSmallerScreen, setIsSmallerScreen] = useState(
     window.innerWidth < 768
   );
-  const images = [
-    { src: firstImage, alt: 'first' },
-    { src: secondImage, alt: 'second' },
-    { src: thirdImage, alt: 'third' },
-  ];
   const [imageToShow, setImageToShow] = useState(0);
 
   useEffect(() => {
@@ -43,9 +39,19 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    homeImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        setLoadedImages((prevImages) => [...prevImages, img]);
+      };
+    });
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setImageToShow((prev) => {
-        if (prev === images.length - 1) {
+        if (prev === loadedImages.length - 1) {
           return 0;
         }
         return prev + 1;
@@ -53,7 +59,7 @@ const App = () => {
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [homeImages]);
 
   return (
     <>
@@ -75,7 +81,9 @@ const App = () => {
         </Links>
 
         <ImageContainer>
-          <img src={images[imageToShow].src} alt={images[imageToShow].alt} />
+          {loadedImages.length > 0 && (
+            <img src={loadedImages[imageToShow].src} alt={'hey'} />
+          )}
         </ImageContainer>
       </Container>
     </>

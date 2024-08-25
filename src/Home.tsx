@@ -3,9 +3,11 @@ import { homeImages } from './assets/home';
 import { ImageContainer } from './styles';
 import { useLoadImages } from './useLoadImages';
 
-export const Home = () => {
+export const Home = ({ isSmallerScreen }: { isSmallerScreen: boolean }) => {
   const [imageToShow, setImageToShow] = useState(0);
   const loadedImages = useLoadImages(homeImages);
+
+  console.log(loadedImages);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,7 +22,7 @@ export const Home = () => {
     return () => clearInterval(interval);
   }, [homeImages]);
   return (
-    <ImageContainer>
+    <ImageContainer $isSmallerScreen={isSmallerScreen}>
       {loadedImages.length > 0 && (
         <img src={loadedImages[imageToShow].src} alt={`${imageToShow}`} />
       )}

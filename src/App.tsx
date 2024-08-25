@@ -54,8 +54,8 @@ const App = () => {
           </Link>
         </Links>
 
-        {route === Routes.HOME && <Home />}
-        {route === Routes.PRESS && <Press />}
+        {route === Routes.HOME && <Home isSmallerScreen={isSmallerScreen} />}
+        {route === Routes.PRESS && <Press isSmallerScreen={isSmallerScreen} />}
       </Container>
     </>
   );

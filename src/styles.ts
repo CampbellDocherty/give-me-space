@@ -82,20 +82,21 @@ export const Link = styled.p<{ $selected: boolean }>`
   ${({ $selected }) => !$selected && strikeThrough}
 `;
 
-export const ImageContainer = styled.div`
+export const ImageContainer = styled.div<{ $isSmallerScreen?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: flex-start;
   height: 60vh;
   flex: 1;
-  max-width: 100vw;
+  max-width: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '100%' : '80%')};
   overflow: hidden;
+  flex-wrap: nowrap;
 
+  animation: ${fadeInBottom} 1s ease-out;
   img {
     max-width: 100%;
     max-height: 100%;
 
     object-fit: cover;
-    animation: ${fadeInBottom} 1s ease-out;
   }
 `;

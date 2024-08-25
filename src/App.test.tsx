@@ -6,7 +6,7 @@ describe('When the app renders', () => {
   test('it shows links', () => {
     render(<App />);
     screen.getByText('Home');
-    screen.getByText('About');
+    screen.getByText('Press');
   });
 
   test('it goes home when home is clicked', () => {

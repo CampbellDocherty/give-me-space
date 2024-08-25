@@ -88,9 +88,11 @@ export const ImageContainer = styled.div`
   align-items: center;
   height: 60vh;
   flex: 1;
+  max-width: 100vw;
 
   img {
     height: 100%;
+    max-width: 100%;
     object-fit: cover;
 
     &:nth-child(1) {

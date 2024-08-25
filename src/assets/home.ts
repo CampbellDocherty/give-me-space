@@ -11,7 +11,6 @@ import ten from './10.jpeg';
 import eleven from './11.jpeg';
 import twelve from './12.jpeg';
 import thirteen from './13.jpeg';
-import fourteen from './14.jpeg';
 import twenty from './20.jpeg';
 import twentyone from './21.jpeg';
 import twentytwo from './22.jpeg';
@@ -49,7 +48,6 @@ export const homeImages = [
   eleven,
   twelve,
   thirteen,
-  fourteen,
   twenty,
   twentyone,
   twentytwo,

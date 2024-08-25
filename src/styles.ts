@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { fadeIn, fadeInBottom, fadeInLeft } from './animations';
 
 export const Logo = styled.img`
-  height: 6rem;
+  height: 5rem;
   cursor: pointer;
   animation: ${fadeIn} 1s ease-out;
   display: inline-block;
@@ -88,8 +88,10 @@ export const ImageContainer = styled.div`
   align-items: center;
   height: 60vh;
   flex: 1;
+
   img {
     height: 100%;
+    object-fit: cover;
 
     &:nth-child(1) {
       animation: ${fadeInBottom} 1s ease-out;

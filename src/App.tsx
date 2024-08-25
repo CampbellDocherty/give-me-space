@@ -50,7 +50,7 @@ const App = () => {
         }
         return prev + 1;
       });
-    }, 2000);
+    }, 1500);
 
     return () => clearInterval(interval);
   }, [images.length]);

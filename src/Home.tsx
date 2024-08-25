@@ -7,8 +7,6 @@ export const Home = ({ isSmallerScreen }: { isSmallerScreen: boolean }) => {
   const [imageToShow, setImageToShow] = useState(0);
   const loadedImages = useLoadImages(homeImages);
 
-  console.log(loadedImages);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setImageToShow((prev) => {

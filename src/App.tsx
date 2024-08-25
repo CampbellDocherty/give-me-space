@@ -50,7 +50,7 @@ const App = () => {
         }
         return prev + 1;
       });
-    }, 2000);
+    }, 1500);
 
     return () => clearInterval(interval);
   }, [images.length]);
@@ -58,55 +58,26 @@ const App = () => {
   return (
     <>
       <Logo src={logo} alt="logo" onClick={() => setRoute(Routes.HOME)} />
-      {!isSmallerScreen ? (
-        <Container>
-          <Links>
-            <Link
-              onClick={() => setRoute(Routes.HOME)}
-              $selected={route === Routes.HOME}
-            >
-              Home
-            </Link>
-            <Link
-              onClick={() => setRoute(Routes.ABOUT)}
-              $selected={route === Routes.ABOUT}
-            >
-              About
-            </Link>
-          </Links>
+      <Container $isSmallerScreen={isSmallerScreen}>
+        <Links $isSmallerScreen={isSmallerScreen}>
+          <Link
+            onClick={() => setRoute(Routes.HOME)}
+            $selected={route === Routes.HOME}
+          >
+            Home
+          </Link>
+          <Link
+            onClick={() => setRoute(Routes.ABOUT)}
+            $selected={route === Routes.ABOUT}
+          >
+            About
+          </Link>
+        </Links>
 
-          <ImageContainer>
-            {images.map((image, index) => (
-              <img key={index} src={image.src} alt={image.alt} />
-            ))}
-          </ImageContainer>
-        </Container>
-      ) : (
-        <>
-          <Links $isSmallerScreen={isSmallerScreen}>
-            <Link
-              onClick={() => setRoute(Routes.HOME)}
-              $selected={route === Routes.HOME}
-            >
-              Home
-            </Link>
-            <Link
-              onClick={() => setRoute(Routes.ABOUT)}
-              $selected={route === Routes.ABOUT}
-            >
-              About
-            </Link>
-          </Links>
-          <Container $isSmallerScreen={isSmallerScreen}>
-            <ImageContainer>
-              <img
-                src={images[imageToShow].src}
-                alt={images[imageToShow].alt}
-              />
-            </ImageContainer>
-          </Container>
-        </>
-      )}
+        <ImageContainer>
+          <img src={images[imageToShow].src} alt={images[imageToShow].alt} />
+        </ImageContainer>
+      </Container>
     </>
   );
 };

@@ -1,20 +1,12 @@
-import { keyframes, styled } from 'styled-components';
-
-const fadeIn = keyframes`
-    from {
-        opacity: 0
-    }
-    
-    to {
-        opacity: 1;
-    }
-    `;
+import { styled } from 'styled-components';
+import { fadeIn, fadeInBottom, fadeInLeft } from './animations';
 
 export const Logo = styled.img`
-  height: 14rem;
+  height: 5rem;
   cursor: pointer;
   animation: ${fadeIn} 1s ease-out;
   display: inline-block;
+  margin: 1rem;
 `;
 
 export const Container = styled.div<{
@@ -22,7 +14,7 @@ export const Container = styled.div<{
 }>`
   width: 100%;
   display: flex;
-  padding: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '0' : '2rem')};
+  padding: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '2rem 0' : '2rem')};
   gap: 8rem;
 `;
 
@@ -31,7 +23,7 @@ const smallerScreenLinks = `
     justify-content: center;
     gap: 1rem;
     position: absolute;
-    top: 4.5rem;
+    top: 1.5rem;
     right: 1rem;
     `;
 
@@ -41,21 +33,8 @@ export const Links = styled.div<{
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding-top: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '0' : '4rem')};
   ${({ $isSmallerScreen }) => $isSmallerScreen && smallerScreenLinks}
 `;
-
-const fadeInLeft = keyframes`
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    `;
 
 const strikeThrough = `
   &:before,
@@ -103,28 +82,18 @@ export const Link = styled.p<{ $selected: boolean }>`
   ${({ $selected }) => !$selected && strikeThrough}
 `;
 
-const fadeInBottom = keyframes`
-    from {
-        opacity: 0;
-        transform: translateY(80px);
-    }
-    
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    `;
-
 export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 60vh;
+  flex: 1;
   max-width: 100vw;
 
   img {
     height: 100%;
-    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
 
     &:nth-child(1) {
       animation: ${fadeInBottom} 1s ease-out;

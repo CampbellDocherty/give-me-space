@@ -18,7 +18,8 @@ export const Home = ({ isSmallerScreen }: { isSmallerScreen: boolean }) => {
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [homeImages]);
+  }, [homeImages, loadedImages]);
+
   return (
     <ImageContainer $isSmallerScreen={isSmallerScreen}>
       {loadedImages.length > 0 && (

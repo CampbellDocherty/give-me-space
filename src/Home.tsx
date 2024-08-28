@@ -8,23 +8,35 @@ export const Home = ({ isSmallerScreen }: { isSmallerScreen: boolean }) => {
   const loadedImages = useLoadImages(homeImages);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setImageToShow((prev) => {
-        if (prev === loadedImages.length - 1) {
-          return 0;
-        }
-        return prev + 1;
-      });
-    }, 1500);
+    if (isSmallerScreen) {
+      const interval = setInterval(() => {
+        setImageToShow((prev) => {
+          if (prev === loadedImages.length - 1) {
+            return 0;
+          }
+          return prev + 1;
+        });
+      }, 1500);
 
-    return () => clearInterval(interval);
-  }, [homeImages, loadedImages]);
+      return () => clearInterval(interval);
+    }
+  }, [loadedImages]);
+
+  if (isSmallerScreen) {
+    return (
+      <ImageContainer $isSmallerScreen={isSmallerScreen}>
+        {loadedImages.length > 0 && (
+          <img src={loadedImages[imageToShow].src} alt={`${imageToShow}`} />
+        )}
+      </ImageContainer>
+    );
+  }
 
   return (
-    <ImageContainer $isSmallerScreen={isSmallerScreen}>
-      {loadedImages.length > 0 && (
-        <img src={loadedImages[imageToShow].src} alt={`${imageToShow}`} />
-      )}
+    <ImageContainer>
+      <img src={homeImages[0]} alt={'one'} />
+      <img src={homeImages[1]} alt={'two'} />
+      <img src={homeImages[2]} alt={'three'} />
     </ImageContainer>
   );
 };

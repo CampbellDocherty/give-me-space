@@ -3,9 +3,11 @@ import logo from './assets/logo.jpeg';
 import { Container, Header, Link, Links, Logo } from './styles';
 import { Home } from './Home';
 import { Press } from './Press';
+import { About } from './About';
 
 enum Routes {
   HOME = 'home',
+  ABOUT = 'about',
   PRESS = 'press',
 }
 
@@ -47,6 +49,12 @@ const App = () => {
             Home
           </Link>
           <Link
+            onClick={() => setRoute(Routes.ABOUT)}
+            $selected={route === Routes.ABOUT}
+          >
+            About
+          </Link>
+          <Link
             onClick={() => setRoute(Routes.PRESS)}
             $selected={route === Routes.PRESS}
           >
@@ -56,6 +64,7 @@ const App = () => {
       </Header>
       <Container $isSmallerScreen={isSmallerScreen}>
         {route === Routes.HOME && <Home isSmallerScreen={isSmallerScreen} />}
+        {route === Routes.ABOUT && <About />}
         {route === Routes.PRESS && <Press isSmallerScreen={isSmallerScreen} />}
       </Container>
     </>

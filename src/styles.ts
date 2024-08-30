@@ -27,11 +27,13 @@ export const Header = styled.header`
 
 const smallerScreenLinks = `
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 1rem;
     position: absolute;
     top: 1.5rem;
     right: 1rem;
+    margin-right: 0;
     `;
 
 export const Links = styled.div<{
@@ -74,7 +76,7 @@ export const ImageContainer = styled.div<{ $isSmallerScreen?: boolean }>`
 
   animation: ${fadeInBottom} 1s ease-out;
   img {
-    width: 33.333%;
+    width: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '100%' : '33.33%')};
     height: 100%;
     object-fit: cover;
   }

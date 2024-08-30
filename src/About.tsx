@@ -6,7 +6,8 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   transition: ${fadeInBottom} 1s ease-out;
-  padding: 0 24px;
+  padding: 0 12px;
+  position: relative;
 `;
 
 const Title = styled.p`

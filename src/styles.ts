@@ -6,6 +6,7 @@ export const Logo = styled.img`
   cursor: pointer;
   animation: ${fadeIn} 1s ease-out;
   display: inline-block;
+  align-self: flex-start;
 `;
 
 export const Container = styled.div<{
@@ -27,13 +28,10 @@ export const Header = styled.header`
 `;
 
 const smallerScreenLinks = `
-    display: flex;
+    
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
-    position: absolute;
-    top: 1.5rem;
-    right: 1rem;
+    gap: 0.5rem;
     margin-right: 0;
     `;
 

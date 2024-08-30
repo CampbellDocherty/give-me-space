@@ -6,7 +6,6 @@ export const Logo = styled.img`
   cursor: pointer;
   animation: ${fadeIn} 1s ease-out;
   display: inline-block;
-  margin: 1rem;
 `;
 
 export const Container = styled.div<{
@@ -14,8 +13,16 @@ export const Container = styled.div<{
 }>`
   width: 100%;
   display: flex;
-  padding: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '2rem 0' : '2rem')};
-  gap: 8rem;
+  padding: 0;
+`;
+
+export const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
 `;
 
 const smallerScreenLinks = `
@@ -31,40 +38,10 @@ export const Links = styled.div<{
   $isSmallerScreen?: boolean;
 }>`
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  flex-direction: row;
+  gap: 2rem;
+  margin-right: 4rem;
   ${({ $isSmallerScreen }) => $isSmallerScreen && smallerScreenLinks}
-`;
-
-const strikeThrough = `
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    top: 53%;
-    margin-top: -0.5px;
-    background: #000;
-  }
-
-  &:after {
-    right: 2.5px;
-    background: #000;
-    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
-  }
-
-  &:hover:before {
-    background: #000;
-    width: 100%;
-    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-  }
-
-  &:hover:after {
-    background: transparent;
-    width: 100%;
-    transition: 0s;
-  }
 `;
 
 export const Link = styled.p<{ $selected: boolean }>`
@@ -77,26 +54,28 @@ export const Link = styled.p<{ $selected: boolean }>`
     animation: ${fadeInLeft} 0.6s ease-out;
   }
   animation: ${fadeInLeft} 1s ease-out;
-  text-decoration: ${({ $selected }) => ($selected ? 'line-through' : 'none')};
+  text-decoration: ${({ $selected }) => ($selected ? 'underline' : 'none')};
 
-  ${({ $selected }) => !$selected && strikeThrough}
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const ImageContainer = styled.div<{ $isSmallerScreen?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 60vh;
+  box-sizing: border-box;
   flex: 1;
-  max-width: ${({ $isSmallerScreen }) => ($isSmallerScreen ? '100%' : '80%')};
+  height: 80vh;
+  max-width: 100%;
   overflow: hidden;
   flex-wrap: nowrap;
 
   animation: ${fadeInBottom} 1s ease-out;
   img {
-    max-width: 100%;
-    max-height: 100%;
-
+    width: 33.333%;
+    height: 100%;
     object-fit: cover;
   }
 `;

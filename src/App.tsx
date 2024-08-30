@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import logo from './assets/logo.jpeg';
-import { Container, Link, Links, Logo } from './styles';
+import { Container, Header, Link, Links, Logo } from './styles';
 import { Home } from './Home';
 import { Press } from './Press';
 
@@ -37,8 +37,8 @@ const App = () => {
 
   return (
     <>
-      <Logo src={logo} alt="logo" onClick={() => setRoute(Routes.HOME)} />
-      <Container $isSmallerScreen={isSmallerScreen}>
+      <Header>
+        <Logo src={logo} alt="logo" onClick={() => setRoute(Routes.HOME)} />
         <Links $isSmallerScreen={isSmallerScreen}>
           <Link
             onClick={() => setRoute(Routes.HOME)}
@@ -53,7 +53,8 @@ const App = () => {
             Press
           </Link>
         </Links>
-
+      </Header>
+      <Container $isSmallerScreen={isSmallerScreen}>
         {route === Routes.HOME && <Home isSmallerScreen={isSmallerScreen} />}
         {route === Routes.PRESS && <Press isSmallerScreen={isSmallerScreen} />}
       </Container>

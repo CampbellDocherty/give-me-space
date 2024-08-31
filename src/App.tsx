@@ -64,7 +64,7 @@ const App = () => {
       </Header>
       <Container $isSmallerScreen={isSmallerScreen}>
         {route === Routes.HOME && <Home isSmallerScreen={isSmallerScreen} />}
-        {route === Routes.ABOUT && <About />}
+        {route === Routes.ABOUT && <About isSmallerScreen={isSmallerScreen} />}
         {route === Routes.PRESS && <Press isSmallerScreen={isSmallerScreen} />}
       </Container>
     </>

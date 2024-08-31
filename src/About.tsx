@@ -41,13 +41,15 @@ const SectionStart = styled.p`
   margin-bottom: 18px;
 `;
 
-export const About = () => {
+export const About = ({ isSmallerScreen }: { isSmallerScreen: boolean }) => {
   return (
     <Container>
-      <BackgroundImage
-        src={aboutBackground}
-        alt="blue abstract painting of a figure"
-      />
+      {!isSmallerScreen && (
+        <BackgroundImage
+          src={aboutBackground}
+          alt="blue abstract painting of a figure"
+        />
+      )}
       <Title>
         About <span style={{ color: '#48963C' }}>Give Me Space</span>
       </Title>

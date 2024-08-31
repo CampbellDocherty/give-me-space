@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { fadeInBottom } from './animations';
+import aboutBackground from './assets/about-background.jpg';
 
 const Container = styled.div`
   display: flex;
@@ -8,6 +9,17 @@ const Container = styled.div`
   transition: ${fadeInBottom} 1s ease-out;
   padding: 0 12px;
   position: relative;
+  overflow: hidden;
+`;
+
+const BackgroundImage = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
 `;
 
 const Title = styled.p`
@@ -32,6 +44,10 @@ const SectionStart = styled.p`
 export const About = () => {
   return (
     <Container>
+      <BackgroundImage
+        src={aboutBackground}
+        alt="blue abstract painting of a figure"
+      />
       <Title>
         About <span style={{ color: '#48963C' }}>Give Me Space</span>
       </Title>

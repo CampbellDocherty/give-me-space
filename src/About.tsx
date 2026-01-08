@@ -50,16 +50,14 @@ export const About = ({ isSmallerScreen }: { isSmallerScreen: boolean }) => {
           alt="blue abstract painting of a figure"
         />
       )}
-      <Title>
-        About <span style={{ color: '#48963C' }}>Give Me Space</span>
-      </Title>
+      <Title>About Give Me Space</Title>
       <SectionStart>
         ‘Give Me Space’ workshops were set up by Cressida Brotherstone (art
         therapist) and Harley Weir (photographer) to provide inclusive and
         accessible art therapy to young people.
       </SectionStart>
       <SectionStart>
-        Young People from inner city London will work alongside artists and
+        Young People between ages 16-25 will work alongside artists and
         designers with the support of an art therapist.
       </SectionStart>
       <SectionHeader>Why are we doing this?</SectionHeader>
@@ -72,34 +70,24 @@ export const About = ({ isSmallerScreen }: { isSmallerScreen: boolean }) => {
         the current educational system and lack of specialised support.
       </SectionStart>
       <SectionStart>
-        We hope to expose both artists, young people, and therapists to new ways
-        of communicating with each other. The artists involved wouldn’t usually
-        link up with an art therapist, or young influential minds, so there will
-        be strong emphasis on collaboration throughout. The groups will take
-        place across different venues in south London where an art therapist
-        will work alongside an artist to deliver 5-6 workshops and find the most
-        suitable environment to do that. The workshops will include clothes and
-        furniture design, filmmaking, animation, graphics, photography, ceramics
-        and more. There will be less emphasis on results, more on the importance
-        of the creative process, and the ability it has to heal, regulate and
-        build self-esteem. ‘Give Me Space’ will support young people to realise
-        their unique potential...Because we all deserve a creative future.
-      </SectionStart>
-      <SectionHeader>Where will the collaborations take place?</SectionHeader>
-      <SectionStart>
-        The groups will take place across different venues in south London where
-        an art therapist will work alongside an artist to deliver 5-6 workshops
-        and find the most suitable environment to do that.
+        The project hopes to expose both artists, young people, and therapists
+        to new ways of communicating with each other. The artists involved
+        wouldn’t usually link up with an art therapist, or young influential
+        minds, so there will be strong emphasis on collaboration throughout.
       </SectionStart>
       <SectionStart>
-        The workshops will include clothes and furniture design, filmmaking,
-        animation, graphics, photography, ceramics and more. There will be less
+        The groups will take place across different inner city venues to deliver
+        a series of workshops in the most suitable environment.
+      </SectionStart>
+      <SectionStart>
+        The workshops will include textile and furniture design, filmmaking,
+        animation, photography, ceramics, woodwork and more! There will be less
         emphasis on results, more on the importance of the creative process, and
         the ability it has to heal, regulate and build self-esteem.
       </SectionStart>
       <SectionStart style={{ marginTop: 18 }}>
         ‘Give Me Space’ will support young people to realise their unique
-        potential...Because we all deserve a creative future.
+        potential...Because we all deserve a creative future!
       </SectionStart>
     </Container>
   );

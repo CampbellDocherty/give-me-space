@@ -6,8 +6,6 @@ import five from './5.jpg';
 import six from './6.jpg';
 import seven from './7.jpg';
 import eight from './8.jpg';
-import nine from './9.jpeg';
-import ten from './10.jpeg';
 import eleven from './11.jpeg';
 import twelve from './12.jpeg';
 import thirteen from './13.jpeg';
@@ -43,8 +41,6 @@ export const homeImages = [
   six,
   seven,
   eight,
-  nine,
-  ten,
   eleven,
   twelve,
   thirteen,
